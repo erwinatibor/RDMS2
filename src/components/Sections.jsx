@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import { Users, Stethoscope, BookOpen, Microscope, Megaphone, Scale, Heart, Activity, Shield, ArrowRight, MapPin, Globe, Phone, Mail, Plus, Minus, Truck, GraduationCap, FileText, ClipboardList } from 'lucide-react';
 
 const fadeUp = {
@@ -22,11 +22,64 @@ const SectionHeader = ({ title }) => (
   </div>
 );
 
+function TiltCard({ children, className, variants, whileHover }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      variants={variants}
+      whileHover={whileHover}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      className={className}
+    >
+      <div style={{ transform: "translateZ(30px)" }} className="w-full h-full flex flex-col justify-end">
+        {children}
+      </div>
+    </motion.div>
+  );
+}
+
 
 
 export function WhoWeAre() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [-50, 100]);
+  const cardY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
   return (
-    <section id="who-we-are" className="py-28 lg:py-36 bg-[#FAF7F0] relative overflow-hidden">
+    <section ref={containerRef} id="who-we-are" className="py-28 lg:py-36 bg-[#FAF7F0] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/2 h-[150%] bg-forest-50/50 rounded-bl-[150px] -z-10 rotate-6 transform origin-top-right"></div>
       <div className="max-w-7xl mx-auto px-6 lg:px-14">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
@@ -58,17 +111,18 @@ export function WhoWeAre() {
             </div>
 
             <div className="order-1 lg:order-2 relative h-[500px] lg:h-[650px] w-full">
-              <div className="absolute top-0 right-0 w-3/4 h-[70%] rounded-3xl overflow-hidden shadow-2xl z-10 hover:scale-[1.02] transition-transform duration-700">
+              <motion.div style={{ y: y1 }} className="absolute top-0 right-0 w-3/4 h-[70%] rounded-3xl overflow-hidden shadow-2xl z-10 hover:scale-[1.02] transition-transform duration-700">
                 <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS (10).png`} alt="Community Outreach" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-forest-950/10 mix-blend-multiply"></div>
-              </div>
+              </motion.div>
               
-              <div className="absolute bottom-0 left-0 w-3/5 h-[55%] rounded-3xl overflow-hidden shadow-2xl border-[12px] border-[#FAF7F0] z-20 hover:scale-[1.05] transition-transform duration-700">
+              <motion.div style={{ y: y2 }} className="absolute bottom-0 left-0 w-3/5 h-[55%] rounded-3xl overflow-hidden shadow-2xl border-[12px] border-[#FAF7F0] z-20 hover:scale-[1.05] transition-transform duration-700">
                 <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS (28).png`} alt="Clinical Care" className="w-full h-full object-cover" />
-              </div>
+              </motion.div>
 
               {/* Floating Vision Card */}
               <motion.div 
+                style={{ y: cardY }}
                 initial={{ opacity: 0, scale: 0.9, x: 20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -124,11 +178,11 @@ export function WhatWeDo() {
             const isGold = s.theme === 'gold';
             
             return (
-              <motion.div 
+              <TiltCard 
                 key={s.id} 
                 variants={fadeUp} 
-                whileHover={{ scale: 1.02 }}
-                className={`group rounded-3xl p-8 relative overflow-hidden transition-all duration-500 flex flex-col justify-end ${s.colSpan} ${s.rowSpan} ${
+                whileHover={{ scale: 1.05 }}
+                className={`group rounded-3xl p-8 relative overflow-hidden transition-colors duration-500 flex flex-col justify-end ${s.colSpan} ${s.rowSpan} ${
                   !isImage && !isGold ? 'bg-forest-50 hover:bg-forest-100' : ''
                 } ${isGold ? 'bg-gold-500 text-forest-950' : ''} ${!isImage && !isGold && !isDark ? 'text-forest-900' : 'text-white'}`}
               >
@@ -154,7 +208,7 @@ export function WhatWeDo() {
                     'text-forest-800/70'
                   }`}>{s.desc}</p>
                 </div>
-              </motion.div>
+              </TiltCard>
             )
           })}
         </motion.div>
@@ -190,13 +244,13 @@ export function WhoWeServe() {
 
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {groups.map((g, i) => (
-            <motion.div key={i} variants={fadeUp} className="group glass-card-dark p-8 md:p-10 rounded-3xl hover:bg-white/10 transition-all duration-500 border border-white/10 hover:-translate-y-2 backdrop-blur-2xl">
+            <TiltCard key={i} variants={fadeUp} whileHover={{ scale: 1.02, y: -5 }} className="group glass-card-dark p-8 md:p-10 rounded-3xl hover:bg-white/10 transition-all duration-500 border border-white/10 backdrop-blur-2xl">
               <div className="w-16 h-16 rounded-2xl bg-gold-500/20 flex items-center justify-center mb-8 group-hover:bg-gold-500 group-hover:text-forest-900 transition-colors text-gold-400 shadow-[0_0_30px_rgba(201,152,58,0.2)]">
                 <g.icon className="w-8 h-8" />
               </div>
               <h3 className="font-display text-2xl font-bold text-white mb-4">{g.title}</h3>
               <p className="text-white/60 leading-relaxed text-lg">{g.desc}</p>
-            </motion.div>
+            </TiltCard>
           ))}
         </motion.div>
       </div>
@@ -205,12 +259,22 @@ export function WhoWeServe() {
 }
 
 export function WhyItMatters() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3]);
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+
   return (
-    <section id="why-it-matters" className="py-32 lg:py-48 bg-forest-950 text-center relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-2xl aspect-square bg-gold-600/10 rounded-full blur-[150px] animate-blob z-0"></div>
+    <section ref={containerRef} id="why-it-matters" className="py-32 lg:py-48 bg-forest-950 text-center relative overflow-hidden">
+      <motion.div style={{ scale, opacity, x: "-50%", y: "-50%" }} className="absolute top-1/2 left-1/2 transform w-[80%] max-w-2xl aspect-square bg-gold-600/10 rounded-full blur-[150px] animate-blob z-0"></motion.div>
       
       <div className="max-w-5xl mx-auto px-6 lg:px-14 relative z-10">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+        <motion.div style={{ y }} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
           <div className="text-gold-500 mb-8 flex justify-center">
             <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor" className="opacity-50"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
           </div>
@@ -250,7 +314,7 @@ export function Programs() {
 
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {programs.map((p, i) => (
-            <motion.div key={i} variants={fadeUp} whileHover={{ scale: 1.02, y: -5 }} className="group glass-card p-8 rounded-3xl transition-all duration-300 flex flex-col gap-6 items-start relative overflow-hidden bg-white border border-forest-100 shadow-[0_10px_40px_rgba(26,71,49,0.05)] hover:shadow-[0_20px_50px_rgba(201,152,58,0.15)]">
+            <TiltCard key={i} variants={fadeUp} whileHover={{ scale: 1.05 }} className="group glass-card p-8 rounded-3xl transition-all duration-300 flex flex-col gap-6 items-start relative overflow-hidden bg-white border border-forest-100 shadow-[0_10px_40px_rgba(26,71,49,0.05)] hover:shadow-[0_20px_50px_rgba(201,152,58,0.15)]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
               <div className="w-16 h-16 bg-forest-50 rounded-2xl flex items-center justify-center shrink-0 text-forest-700 group-hover:bg-gold-500 group-hover:text-forest-950 transition-colors border border-forest-100 shadow-sm z-10">
                 <p.icon className="w-8 h-8" />
@@ -259,7 +323,7 @@ export function Programs() {
                 <h3 className="font-display text-2xl font-bold text-forest-900 mb-3">{p.title}</h3>
                 <p className="text-forest-800/70 leading-relaxed text-lg">{p.desc}</p>
               </div>
-            </motion.div>
+            </TiltCard>
           ))}
         </motion.div>
       </div>
