@@ -9,20 +9,23 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-forest-950">
-      {/* Liquid Mesh Gradient Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-forest-600 rounded-full mix-blend-normal filter blur-[150px] opacity-40 animate-blob"></div>
-        <div className="absolute top-[10%] right-[-20%] w-[60%] h-[60%] bg-teal-800 rounded-full mix-blend-normal filter blur-[150px] opacity-40 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-20%] left-[20%] w-[60%] h-[60%] bg-gold-600 rounded-full mix-blend-normal filter blur-[150px] opacity-30 animate-blob animation-delay-4000"></div>
-        <div className="absolute bottom-[-10%] right-[10%] w-[50%] h-[50%] bg-forest-500 rounded-full mix-blend-normal filter blur-[140px] opacity-30 animate-blob"></div>
+      {/* Cinematic Full-Screen Video Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <video 
+          src={`${import.meta.env.BASE_URL}assets/hero.mp4`} 
+          autoPlay muted loop playsInline 
+          className="w-full h-full object-cover"
+        ></video>
+        <div className="absolute inset-0 bg-forest-950/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-forest-950/50 via-transparent to-forest-950"></div>
       </div>
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(26,71,49,0.2)_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none"></div>
-      <div className="grain"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(26,71,49,0.2)_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none z-0"></div>
+      <div className="grain z-0 opacity-50"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-14 pt-32 pb-20 w-full grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-14 pt-32 pb-20 w-full flex flex-col justify-center min-h-[80vh]">
         
         {/* Left Content */}
-        <div>
+        <div className="max-w-3xl">
           <motion.div custom={1} initial="hidden" animate="visible" variants={textVariants} className="flex items-center gap-3 mb-6">
             <div className="h-[1px] w-12 bg-gold-600"></div>
             <span className="text-xs font-bold tracking-[0.2em] text-gold-500 uppercase">Est. 2024 · Rwanda</span>
@@ -59,30 +62,6 @@ export default function Hero() {
             ))}
           </motion.div>
         </div>
-
-        {/* Right Video / Image */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95, x: 50 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ delay: 0.8, duration: 1, ease: 'easeOut' }}
-          className="relative"
-        >
-          <div className="absolute -inset-4 bg-gold-500/10 blur-2xl rounded-full z-0"></div>
-          <div className="relative z-10 aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            <video 
-              src={`${import.meta.env.BASE_URL}assets/hero.mp4`} 
-              autoPlay muted loop playsInline 
-              className="w-full h-full object-cover"
-            ></video>
-            <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent pointer-events-none"></div>
-            
-            <div className="absolute top-4 left-4 px-3 py-1.5 glass rounded-full flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-              <span className="text-[0.65rem] font-bold tracking-wider text-white uppercase">Live Outreach</span>
-            </div>
-          </div>
-        </motion.div>
-
       </div>
     </section>
   );
