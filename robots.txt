@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Specifically welcoming AI Bots to read and list our content
+User-agent: CCBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Omgili
+Allow: /
+User-agent: FacebookBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+
+Sitemap: /sitemap.xml
