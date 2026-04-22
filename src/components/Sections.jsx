@@ -40,7 +40,7 @@ export function WhoWeAre() {
                 Dento-Medical Society Rwanda (RDMS) is a registered non-profit organization founded on 1 July 2024, headquartered in Huye, Rwanda.
               </p>
               <p className="text-forest-800/70 text-lg mb-10 leading-relaxed max-w-xl">
-                Founded by Igisubizo Jimmy Confiance, operating under RDB registration code 143885158.
+                RDMS was founded by Igisubizo Jimmy Confiance and operates under RDB registration code 143885158.
               </p>
               <div className="flex flex-wrap gap-3">
                 {['Excellence', 'Integrity', 'Compassion', 'Innovation', 'Collaboration'].map((v, i) => (
@@ -218,7 +218,7 @@ export function WhyItMatters() {
             The Mouth is the <br className="hidden md:block"/> <span className="text-gold-500 italic font-normal">Mirror</span> of the Body.
           </h2>
           <p className="text-white/60 text-xl lg:text-2xl max-w-3xl mx-auto font-light leading-relaxed">
-            Dentistry is consistently underfunded and overlooked in Rwanda’s healthcare system. Fragmented services and limited preventive care result in preventable diseases. <br className="hidden md:block"/><br className="hidden md:block"/><span className="text-white font-medium text-2xl lg:text-3xl">RDMS exists to close that gap.</span>
+            Dentistry is consistently underfunded and overlooked in Rwanda’s healthcare system. Fragmented services, low public awareness, and limited preventive care result in preventable diseases and reduced quality of life — disproportionately affecting vulnerable populations. <br className="hidden md:block"/><br className="hidden md:block"/><span className="text-white font-medium text-2xl lg:text-3xl">RDMS exists to close that gap.</span>
           </p>
         </motion.div>
       </div>
@@ -272,16 +272,16 @@ export function Programs() {
 export function FAQ() {
   const [open, setOpen] = useState(0);
   const faqs = [
-    { q: 'What is RDMS?', a: 'RDMS stands for Dento-Medical Society Rwanda. It is a registered non-profit organization uniting dental surgeons, dental therapists, and public health professionals to improve oral health access in Rwanda.' },
+    { q: 'What is RDMS?', a: 'RDMS stands for Dento-Medical Society Rwanda. It is a non-profit organization uniting dental and public health professionals to improve oral health access in Rwanda.' },
     { q: 'Does RDMS run free dental services?', a: 'Yes. RDMS operates community mobile clinics offering preventive and curative dental services to underserved and rural populations at no cost.' },
-    { q: 'Can students join RDMS?', a: 'Yes. RDMS offers student membership, mentorship programs, and a Research Academy for dental and medical students across Rwanda.' },
-    { q: 'Does RDMS do outreach in rural areas?', a: 'Yes. Mobile clinic outreach to underserved and rural communities is one of RDMS\'s core activities, primarily across Rwanda\'s Southern Province and expanding nationwide.' },
-    { q: 'What is the Dental Medicine Chronicles?', a: 'It is RDMS\'s educational publication covering oral-systemic health topics for both healthcare professionals and the general public.' },
-    { q: 'How can I partner with RDMS?', a: 'Partner organizations can contact RDMS via rdmspresident13@gmail.com to discuss outreach collaboration, research initiatives, and joint programming.' },
+    { q: 'Can students join RDMS?', a: 'Yes. RDMS has student membership, mentorship programs, and a research academy for dental and medical students.' },
+    { q: 'Does RDMS do outreach in rural areas?', a: 'Yes. Mobile clinic outreach to underserved communities is one of RDMS’s core activities.' },
+    { q: 'What is the Dental Medicine Chronicles?', a: 'It is RDMS’s educational publication covering oral-systemic health topics for professionals and the public.' },
+    { q: 'How can I partner with RDMS?', a: 'Partner organizations can contact RDMS via rdmspresident13@gmail.com to discuss outreach collaboration and research initiatives.' },
     { q: 'Does RDMS diagnose dental conditions?', a: 'No. RDMS provides education and referral guidance. Diagnosis and treatment require an in-person consultation with a licensed dental professional.' },
     { q: 'What languages does RDMS operate in?', a: 'English, Kinyarwanda, and French.' },
     { q: 'Where is RDMS headquartered?', a: 'Ngoma, Huye, Southern Province, Rwanda.' },
-    { q: 'How is RDMS funded?', a: 'RDMS is sustained through partnerships with government institutions, NGOs, dental associations, and international partners, as well as membership contributions.' },
+    { q: 'How is RDMS funded?', a: 'RDMS is sustained through partnerships with government institutions, NGOs, dental associations, and international partners.' },
   ];
 
   return (

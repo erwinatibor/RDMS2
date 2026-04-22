@@ -18,6 +18,7 @@ function HomePage() {
       <WhoWeServe />
       <WhyItMatters />
       <Programs />
+      <FAQ />
       <Contact />
       <Footer />
     </>

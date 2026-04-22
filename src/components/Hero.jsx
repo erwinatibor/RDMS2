@@ -38,7 +38,7 @@ export default function Hero() {
           <motion.p custom={3} initial="hidden" animate="visible" variants={textVariants} className="text-lg text-white/70 font-light leading-relaxed max-w-2xl mb-12 text-justify">
             A non-profit organization uniting dental surgeons, therapists, and public health professionals to advance oral and systemic health in Rwanda.
             <br /><br />
-            We serve patients, students, healthcare professionals, and underserved communities through dental outreach, public health campaigns, research, and professional education because oral health is not separate from general health.
+            We serve patients, students, healthcare professionals, and underserved communities through dental outreach, public health campaigns, research, and professional education — because oral health is not separate from general health.
           </motion.p>
 
           <motion.div custom={4} initial="hidden" animate="visible" variants={textVariants} className="flex flex-wrap gap-4 mb-14">
