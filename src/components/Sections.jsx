@@ -26,47 +26,63 @@ const SectionHeader = ({ title }) => (
 
 export function WhoWeAre() {
   return (
-    <section id="who-we-are" className="py-28 lg:py-36 bg-[#FAF7F0] relative">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-forest-50/50 rounded-bl-[100px] -z-10"></div>
+    <section id="who-we-are" className="py-28 lg:py-36 bg-[#FAF7F0] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/2 h-[150%] bg-forest-50/50 rounded-bl-[150px] -z-10 rotate-6 transform origin-top-right"></div>
       <div className="max-w-7xl mx-auto px-6 lg:px-14">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-            <div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-forest-900 mb-8 leading-tight">
-                Rwanda's Oral–Systemic Health Movement.
+          <div className="grid lg:grid-cols-[1fr_1.1fr] gap-16 lg:gap-20 items-center">
+            
+            <div className="order-2 lg:order-1">
+              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-forest-900 mb-8 leading-[1.1] tracking-tight">
+                Rwanda's <br className="hidden lg:block"/> <span className="text-gold-600 italic font-normal">Oral–Systemic</span> <br className="hidden lg:block"/> Health Movement.
               </h2>
-              <p className="text-forest-800/70 text-lg mb-6 leading-relaxed">
+              <p className="text-forest-800/80 text-lg md:text-xl mb-6 leading-relaxed max-w-xl">
                 Dento-Medical Society Rwanda (RDMS) is a registered non-profit organization founded on 1 July 2024, headquartered in Huye, Rwanda.
               </p>
-              <p className="text-forest-800/70 text-lg mb-10 leading-relaxed">
-                RDMS was founded by Igisubizo Jimmy Confiance and operates under RDB registration code 143885158.
+              <p className="text-forest-800/70 text-lg mb-10 leading-relaxed max-w-xl">
+                Founded by Igisubizo Jimmy Confiance, operating under RDB registration code 143885158.
               </p>
               <div className="flex flex-wrap gap-3">
                 {['Excellence', 'Integrity', 'Compassion', 'Innovation', 'Collaboration'].map((v, i) => (
                   <motion.span 
                     key={v} 
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="px-4 py-2 bg-white/80 backdrop-blur-sm text-forest-800 font-semibold rounded-lg text-sm border border-forest-800/10 shadow-sm"
+                    className="px-5 py-2.5 bg-white shadow-md text-forest-900 font-bold rounded-full text-sm tracking-wide border border-forest-100"
                   >
                     {v}
                   </motion.span>
                 ))}
               </div>
             </div>
-            <div className="space-y-6 relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-gold-500/20 to-transparent rounded-[2rem] blur-xl -z-10"></div>
-              <div className="glass-card-dark rounded-2xl p-8 lg:p-12 text-white shadow-[0_20px_50px_rgba(26,71,49,0.2)] relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/20 rounded-full blur-2xl -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
-                <div className="h-1 w-12 bg-gold-500 mb-8 rounded-full"></div>
-                <p className="font-display text-2xl lg:text-3xl font-medium italic mb-6 leading-relaxed">"A Rwanda where every person has access to quality oral healthcare, regardless of geography or economic status."</p>
-                <div className="flex items-center gap-4">
-                  <Globe className="w-6 h-6 text-gold-400" />
-                  <p className="text-white/60 text-sm font-bold uppercase tracking-widest">Our Vision</p>
-                </div>
+
+            <div className="order-1 lg:order-2 relative h-[500px] lg:h-[650px] w-full">
+              <div className="absolute top-0 right-0 w-3/4 h-[70%] rounded-3xl overflow-hidden shadow-2xl z-10 hover:scale-[1.02] transition-transform duration-700">
+                <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS%20(10).png`} alt="Community Outreach" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-forest-950/10 mix-blend-multiply"></div>
               </div>
+              
+              <div className="absolute bottom-0 left-0 w-3/5 h-[55%] rounded-3xl overflow-hidden shadow-2xl border-[12px] border-[#FAF7F0] z-20 hover:scale-[1.05] transition-transform duration-700">
+                <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS%20(28).png`} alt="Clinical Care" className="w-full h-full object-cover" />
+              </div>
+
+              {/* Floating Vision Card */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="absolute top-1/2 -left-8 lg:-left-16 transform -translate-y-1/2 glass-card-dark rounded-2xl p-6 lg:p-8 text-white shadow-[0_20px_50px_rgba(26,71,49,0.3)] z-30 max-w-[280px]"
+              >
+                <div className="h-1 w-10 bg-gold-500 mb-4 rounded-full"></div>
+                <p className="font-display text-xl font-medium italic mb-4 leading-relaxed">"A Rwanda where every person has access to quality oral healthcare."</p>
+                <div className="flex items-center gap-3">
+                  <Globe className="w-5 h-5 text-gold-400" />
+                  <p className="text-white/60 text-xs font-bold uppercase tracking-widest">Our Vision</p>
+                </div>
+              </motion.div>
             </div>
+
           </div>
         </motion.div>
       </div>
@@ -76,20 +92,22 @@ export function WhoWeAre() {
 
 export function WhatWeDo() {
   const services = [
-    { icon: Users, title: 'Mobile Clinics', desc: 'Free and low-cost dental outreach through mobile community clinics' },
-    { icon: Megaphone, title: 'Education Campaigns', desc: 'Public oral health education campaigns' },
-    { icon: Heart, title: 'School Programs', desc: 'School-based dental hygiene programs' },
-    { icon: Microscope, title: 'Research', desc: 'Research collaboration with academic institutions' },
-    { icon: Stethoscope, title: 'Professional Training', desc: 'Professional training and interdisciplinary workshops' },
-    { icon: BookOpen, title: 'Mentorship', desc: 'Mentorship and student development programs' },
-    { icon: Scale, title: 'Policy Dialogue', desc: 'Policy dialogue to integrate dentistry into Rwanda’s national health agenda' }
+    { id: 'mobile', icon: Users, title: 'Mobile Clinics', desc: 'Free and low-cost dental outreach through mobile community clinics', colSpan: 'md:col-span-2 lg:col-span-2', rowSpan: 'lg:row-span-2', theme: 'image', img: 'RDMS%20(33).png' },
+    { id: 'edu', icon: Megaphone, title: 'Education Campaigns', desc: 'Public oral health education campaigns', colSpan: 'md:col-span-1 lg:col-span-1', rowSpan: 'lg:row-span-1', theme: 'light' },
+    { id: 'school', icon: Heart, title: 'School Programs', desc: 'School-based dental hygiene programs', colSpan: 'md:col-span-1 lg:col-span-1', rowSpan: 'lg:row-span-1', theme: 'light' },
+    { id: 'research', icon: Microscope, title: 'Research & Collaboration', desc: 'Research collaboration with academic institutions', colSpan: 'md:col-span-2 lg:col-span-2', rowSpan: 'lg:row-span-1', theme: 'image-dark', img: 'RDMS%20(17).png' },
+    { id: 'training', icon: Stethoscope, title: 'Professional Training', desc: 'Professional training and interdisciplinary workshops', colSpan: 'md:col-span-1 lg:col-span-1', rowSpan: 'lg:row-span-1', theme: 'light' },
+    { id: 'mentor', icon: BookOpen, title: 'Mentorship', desc: 'Mentorship and student development programs', colSpan: 'md:col-span-1 lg:col-span-1', rowSpan: 'lg:row-span-1', theme: 'light' },
+    { id: 'policy', icon: Scale, title: 'Policy Dialogue', desc: 'Policy dialogue to integrate dentistry into Rwanda’s national health agenda', colSpan: 'md:col-span-2 lg:col-span-2', rowSpan: 'lg:row-span-1', theme: 'gold' }
   ];
 
   return (
     <section id="what-we-do" className="py-28 lg:py-36 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-14">
-        <h2 className="font-display text-4xl font-bold text-forest-900 mb-6 max-w-2xl">Delivering care, education, and advocacy.</h2>
-        <p className="text-forest-800/70 text-lg mb-16 max-w-4xl">
+        <h2 className="font-display text-5xl lg:text-6xl font-bold text-forest-900 mb-6 max-w-3xl leading-tight tracking-tight">
+          Delivering care, education, and advocacy.
+        </h2>
+        <p className="text-forest-800/80 text-lg md:text-xl mb-16 max-w-4xl leading-relaxed">
           RDMS delivers dental services, interdisciplinary training, community mobile clinics, public health campaigns, research collaborations, and policy advocacy. RDMS publishes the Dental Medicine Chronicles, runs a student research academy, and operates mentorship programs for dental and medical students across Rwanda.
         </p>
         
@@ -98,24 +116,47 @@ export function WhatWeDo() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[250px]"
         >
-          {services.map((s, i) => (
-            <motion.div 
-              key={i} 
-              variants={fadeUp} 
-              whileHover={{ scale: 1.03, y: -8 }}
-              className="group glass-card p-8 rounded-2xl transition-all duration-500 relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gold-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
-              <div className="absolute top-[-50%] right-[-50%] w-full h-full bg-gradient-to-bl from-white/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-full blur-3xl"></div>
-              <div className="w-14 h-14 bg-white/70 backdrop-blur-md rounded-xl flex items-center justify-center mb-6 text-forest-700 shadow-sm group-hover:text-gold-600 transition-colors border border-white/50">
-                <s.icon className="w-7 h-7" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-forest-900 mb-3">{s.title}</h3>
-              <p className="text-forest-800/70 leading-relaxed">{s.desc}</p>
-            </motion.div>
-          ))}
+          {services.map((s, i) => {
+            const isImage = s.theme.includes('image');
+            const isDark = s.theme === 'image-dark' || s.theme === 'forest';
+            const isGold = s.theme === 'gold';
+            
+            return (
+              <motion.div 
+                key={s.id} 
+                variants={fadeUp} 
+                whileHover={{ scale: 1.02 }}
+                className={`group rounded-3xl p-8 relative overflow-hidden transition-all duration-500 flex flex-col justify-end ${s.colSpan} ${s.rowSpan} ${
+                  !isImage && !isGold ? 'bg-forest-50 hover:bg-forest-100' : ''
+                } ${isGold ? 'bg-gold-500 text-forest-950' : ''} ${!isImage && !isGold && !isDark ? 'text-forest-900' : 'text-white'}`}
+              >
+                {isImage && (
+                  <>
+                    <img src={`${import.meta.env.BASE_URL}assets/Gallery/${s.img}`} alt={s.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div className={`absolute inset-0 ${s.theme === 'image-dark' ? 'bg-forest-950/80' : 'bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent'}`}></div>
+                  </>
+                )}
+                
+                <div className="relative z-10">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm backdrop-blur-md border ${
+                    isImage || isDark ? 'bg-white/10 border-white/20 text-white' : 
+                    isGold ? 'bg-white/20 border-white/30 text-forest-950' : 
+                    'bg-white border-forest-100 text-forest-700'
+                  }`}>
+                    <s.icon className="w-7 h-7" />
+                  </div>
+                  <h3 className={`font-display text-2xl font-bold mb-3 ${isGold ? 'text-forest-950' : ''}`}>{s.title}</h3>
+                  <p className={`leading-relaxed ${
+                    isImage || isDark ? 'text-white/80' : 
+                    isGold ? 'text-forest-950/80 font-medium' : 
+                    'text-forest-800/70'
+                  }`}>{s.desc}</p>
+                </div>
+              </motion.div>
+            )
+          })}
         </motion.div>
       </div>
     </section>
@@ -130,47 +171,34 @@ export function WhoWeServe() {
   ];
 
   return (
-    <section id="who-we-serve" className="py-28 lg:py-36 bg-forest-900 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(26,71,49,0.8)_0%,rgba(15,31,23,1)_100%)]"></div>
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-gold-500/15 rounded-full blur-[120px] animate-blob"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-forest-500/20 rounded-full blur-[100px] animate-blob animation-delay-4000"></div>
+    <section id="who-we-serve" className="py-32 lg:py-48 text-white relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS%20(24).png`} alt="Community Outreach" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-forest-950/85"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-forest-950"></div>
+      </div>
       
       <div className="max-w-7xl mx-auto px-6 lg:px-14 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="lg:w-1/2">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Empowering vulnerable populations.
-              </h2>
-              <p className="text-white/70 text-lg leading-relaxed mb-8">
-                RDMS serves patients seeking oral health guidance, dental and medical students, healthcare professionals, partner organizations, donors, and underserved and rural communities in Rwanda who lack access to preventive dental care.
-              </p>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-4xl mx-auto mb-20">
+          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+            Empowering vulnerable <span className="text-gold-500 italic font-normal">populations.</span>
+          </h2>
+          <p className="text-white/70 text-lg md:text-xl leading-relaxed">
+            RDMS serves patients seeking oral health guidance, dental and medical students, healthcare professionals, partner organizations, donors, and underserved and rural communities in Rwanda who lack access to preventive dental care.
+          </p>
+        </motion.div>
+
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {groups.map((g, i) => (
+            <motion.div key={i} variants={fadeUp} className="group glass-card-dark p-8 md:p-10 rounded-3xl hover:bg-white/10 transition-all duration-500 border border-white/10 hover:-translate-y-2 backdrop-blur-2xl">
+              <div className="w-16 h-16 rounded-2xl bg-gold-500/20 flex items-center justify-center mb-8 group-hover:bg-gold-500 group-hover:text-forest-900 transition-colors text-gold-400 shadow-[0_0_30px_rgba(201,152,58,0.2)]">
+                <g.icon className="w-8 h-8" />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-white mb-4">{g.title}</h3>
+              <p className="text-white/60 leading-relaxed text-lg">{g.desc}</p>
             </motion.div>
-          </div>
-          
-          <div className="lg:w-1/2 w-full">
-            <motion.div 
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              {groups.map((g, i) => (
-                <motion.div key={i} variants={fadeUp} whileHover={{ x: 10, backgroundColor: "rgba(255,255,255,0.1)" }} transition={{ duration: 0.3 }} className="glass-card-dark p-6 rounded-2xl flex gap-6 items-start cursor-default border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-                  <div className="w-12 h-12 bg-gold-500/20 rounded-full flex items-center justify-center shrink-0 text-gold-400 border border-gold-500/20">
-                    <g.icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-xl font-bold mb-2">{g.title}</h3>
-                    <p className="text-white/60 leading-relaxed text-sm">{g.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
@@ -178,12 +206,19 @@ export function WhoWeServe() {
 
 export function WhyItMatters() {
   return (
-    <section id="why-it-matters" className="py-28 lg:py-36 bg-[#FAF7F0]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-14">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-forest-900 mb-6">The Mouth is the Mirror of the Body.</h2>
-          <p className="text-forest-800/70 text-lg max-w-4xl mx-auto">
-            Dentistry is consistently underfunded and overlooked in Rwanda’s healthcare system. Fragmented services, low public awareness, and limited preventive care result in preventable diseases and reduced quality of life — disproportionately affecting vulnerable populations. RDMS exists to close that gap.
+    <section id="why-it-matters" className="py-32 lg:py-48 bg-forest-950 text-center relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-2xl aspect-square bg-gold-600/10 rounded-full blur-[150px] animate-blob z-0"></div>
+      
+      <div className="max-w-5xl mx-auto px-6 lg:px-14 relative z-10">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
+          <div className="text-gold-500 mb-8 flex justify-center">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor" className="opacity-50"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          </div>
+          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-10 leading-[1.1] tracking-tight">
+            The Mouth is the <br className="hidden md:block"/> <span className="text-gold-500 italic font-normal">Mirror</span> of the Body.
+          </h2>
+          <p className="text-white/60 text-xl lg:text-2xl max-w-3xl mx-auto font-light leading-relaxed">
+            Dentistry is consistently underfunded and overlooked in Rwanda’s healthcare system. Fragmented services and limited preventive care result in preventable diseases. <br className="hidden md:block"/><br className="hidden md:block"/><span className="text-white font-medium text-2xl lg:text-3xl">RDMS exists to close that gap.</span>
           </p>
         </motion.div>
       </div>
@@ -205,24 +240,24 @@ export function Programs() {
       <div className="max-w-7xl mx-auto px-6 lg:px-14">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="max-w-3xl mb-16">
           <SectionHeader title="Programs" />
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-forest-900 mb-6 leading-tight">
-            Our flagship initiatives on the ground.
+          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-forest-900 mb-8 leading-tight tracking-tight">
+            Our flagship initiatives <br className="hidden lg:block"/> <span className="text-gold-600 italic font-normal">on the ground.</span>
           </h2>
-          <p className="text-forest-800/70 text-lg">
+          <p className="text-forest-800/80 text-lg md:text-xl max-w-2xl leading-relaxed">
             From mobile clinics serving rural villages to a peer-reviewed publication reaching practitioners nationwide — each programme is built around one goal: integrating oral care into Rwanda's health system.
           </p>
         </motion.div>
 
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-2 gap-6">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {programs.map((p, i) => (
-            <motion.div key={i} variants={fadeUp} whileHover={{ scale: 1.02, y: -5 }} className="group glass-card p-8 rounded-2xl transition-all duration-300 flex gap-6 items-start relative overflow-hidden">
-              <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(201,152,58,0.05)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-              <div className="w-14 h-14 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center shrink-0 text-forest-700 group-hover:bg-gold-500 group-hover:text-forest-950 transition-colors border border-white/50 shadow-sm z-10">
-                <p.icon className="w-7 h-7" />
+            <motion.div key={i} variants={fadeUp} whileHover={{ scale: 1.02, y: -5 }} className="group glass-card p-8 rounded-3xl transition-all duration-300 flex flex-col gap-6 items-start relative overflow-hidden bg-white border border-forest-100 shadow-[0_10px_40px_rgba(26,71,49,0.05)] hover:shadow-[0_20px_50px_rgba(201,152,58,0.15)]">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700"></div>
+              <div className="w-16 h-16 bg-forest-50 rounded-2xl flex items-center justify-center shrink-0 text-forest-700 group-hover:bg-gold-500 group-hover:text-forest-950 transition-colors border border-forest-100 shadow-sm z-10">
+                <p.icon className="w-8 h-8" />
               </div>
               <div className="z-10">
-                <h3 className="font-display text-xl font-bold text-forest-900 mb-2">{p.title}</h3>
-                <p className="text-forest-800/70 leading-relaxed text-sm">{p.desc}</p>
+                <h3 className="font-display text-2xl font-bold text-forest-900 mb-3">{p.title}</h3>
+                <p className="text-forest-800/70 leading-relaxed text-lg">{p.desc}</p>
               </div>
             </motion.div>
           ))}
