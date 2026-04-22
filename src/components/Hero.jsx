@@ -9,13 +9,14 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-forest-950">
-      {/* Background Gradients */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-forest-600/20 rounded-full blur-[120px] animate-blob pointer-events-none"></div>
-      <div className="absolute top-[20%] right-[-10%] w-[30%] h-[50%] bg-gold-600/10 rounded-full blur-[100px] animate-blob animation-delay-2000 pointer-events-none"></div>
-      <div className="absolute bottom-[-20%] left-[20%] w-[40%] h-[40%] bg-forest-400/10 rounded-full blur-[120px] animate-blob animation-delay-4000 pointer-events-none"></div>
-      
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_55%_at_85%_25%,rgba(42,122,84,0.15)_0%,transparent_60%),radial-gradient(ellipse_45%_65%_at_15%_90%,rgba(201,152,58,0.1)_0%,transparent_55%)] pointer-events-none"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(26,71,49,0.2)_1px,transparent_1px)] [background-size:24px_24px] opacity-30 pointer-events-none"></div>
+      {/* Liquid Mesh Gradient Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-forest-600 rounded-full mix-blend-normal filter blur-[150px] opacity-40 animate-blob"></div>
+        <div className="absolute top-[10%] right-[-20%] w-[60%] h-[60%] bg-teal-800 rounded-full mix-blend-normal filter blur-[150px] opacity-40 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-[-20%] left-[20%] w-[60%] h-[60%] bg-gold-600 rounded-full mix-blend-normal filter blur-[150px] opacity-30 animate-blob animation-delay-4000"></div>
+        <div className="absolute bottom-[-10%] right-[10%] w-[50%] h-[50%] bg-forest-500 rounded-full mix-blend-normal filter blur-[140px] opacity-30 animate-blob"></div>
+      </div>
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(26,71,49,0.2)_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none"></div>
       <div className="grain"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-14 pt-32 pb-20 w-full grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
