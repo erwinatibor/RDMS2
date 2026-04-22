@@ -59,12 +59,12 @@ export function WhoWeAre() {
 
             <div className="order-1 lg:order-2 relative h-[500px] lg:h-[650px] w-full">
               <div className="absolute top-0 right-0 w-3/4 h-[70%] rounded-3xl overflow-hidden shadow-2xl z-10 hover:scale-[1.02] transition-transform duration-700">
-                <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS%20(10).png`} alt="Community Outreach" className="w-full h-full object-cover" />
+                <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS (10).png`} alt="Community Outreach" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-forest-950/10 mix-blend-multiply"></div>
               </div>
               
               <div className="absolute bottom-0 left-0 w-3/5 h-[55%] rounded-3xl overflow-hidden shadow-2xl border-[12px] border-[#FAF7F0] z-20 hover:scale-[1.05] transition-transform duration-700">
-                <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS%20(28).png`} alt="Clinical Care" className="w-full h-full object-cover" />
+                <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS (28).png`} alt="Clinical Care" className="w-full h-full object-cover" />
               </div>
 
               {/* Floating Vision Card */}
@@ -92,10 +92,10 @@ export function WhoWeAre() {
 
 export function WhatWeDo() {
   const services = [
-    { id: 'mobile', icon: Users, title: 'Mobile Clinics', desc: 'Free and low-cost dental outreach through mobile community clinics', colSpan: 'md:col-span-2 lg:col-span-2', rowSpan: 'lg:row-span-2', theme: 'image', img: 'RDMS%20(33).png' },
+    { id: 'mobile', icon: Users, title: 'Mobile Clinics', desc: 'Free and low-cost dental outreach through mobile community clinics', colSpan: 'md:col-span-2 lg:col-span-2', rowSpan: 'lg:row-span-2', theme: 'image', img: 'RDMS (33).png' },
     { id: 'edu', icon: Megaphone, title: 'Education Campaigns', desc: 'Public oral health education campaigns', colSpan: 'md:col-span-1 lg:col-span-1', rowSpan: 'lg:row-span-1', theme: 'light' },
     { id: 'school', icon: Heart, title: 'School Programs', desc: 'School-based dental hygiene programs', colSpan: 'md:col-span-1 lg:col-span-1', rowSpan: 'lg:row-span-1', theme: 'light' },
-    { id: 'research', icon: Microscope, title: 'Research & Collaboration', desc: 'Research collaboration with academic institutions', colSpan: 'md:col-span-2 lg:col-span-2', rowSpan: 'lg:row-span-1', theme: 'image-dark', img: 'RDMS%20(17).png' },
+    { id: 'research', icon: Microscope, title: 'Research & Collaboration', desc: 'Research collaboration with academic institutions', colSpan: 'md:col-span-2 lg:col-span-2', rowSpan: 'lg:row-span-1', theme: 'image-dark', img: 'RDMS (17).png' },
     { id: 'training', icon: Stethoscope, title: 'Professional Training', desc: 'Professional training and interdisciplinary workshops', colSpan: 'md:col-span-1 lg:col-span-1', rowSpan: 'lg:row-span-1', theme: 'light' },
     { id: 'mentor', icon: BookOpen, title: 'Mentorship', desc: 'Mentorship and student development programs', colSpan: 'md:col-span-1 lg:col-span-1', rowSpan: 'lg:row-span-1', theme: 'light' },
     { id: 'policy', icon: Scale, title: 'Policy Dialogue', desc: 'Policy dialogue to integrate dentistry into Rwanda’s national health agenda', colSpan: 'md:col-span-2 lg:col-span-2', rowSpan: 'lg:row-span-1', theme: 'gold' }
@@ -173,7 +173,7 @@ export function WhoWeServe() {
   return (
     <section id="who-we-serve" className="py-32 lg:py-48 text-white relative overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS%20(24).png`} alt="Community Outreach" className="w-full h-full object-cover" />
+        <img src={`${import.meta.env.BASE_URL}assets/Gallery/RDMS (24).png`} alt="Community Outreach" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-forest-950/85"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-forest-950"></div>
       </div>
