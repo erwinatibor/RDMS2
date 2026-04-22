@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import { WhoWeAre, WhatWeDo, Programs, WhoWeServe, WhyItMatters, FAQ, Contact, Footer } from './components/Sections';
@@ -26,7 +26,7 @@ function HomePage() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="w-full min-h-screen">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -36,7 +36,7 @@ function App() {
           <Route path="/faq" element={<FAQPage />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
