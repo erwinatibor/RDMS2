@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!--
+    RDMS Service Icons — SVG Sprite
+    Usage: <svg><use href="assets/icons/service-icons.svg#icon-clinic"/></svg>
+    All icons: 24×24 viewBox, stroke-based, stroke-width 1.8
+  -->
+
+  <!-- Mobile Clinic / Ambulance -->
+  <symbol id="icon-clinic" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1" y="8" width="22" height="11" rx="2"/>
+    <path d="M16 8V6a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2"/>
+    <circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/>
+    <path d="M12 12v4m-2-2h4"/>
+  </symbol>
+
+  <!-- School / Education -->
+  <symbol id="icon-school" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+    <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/>
+  </symbol>
+
+  <!-- Research / Flask -->
+  <symbol id="icon-research" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 3h6M9 3v7L5 20h14L15 10V3"/>
+    <path d="M7 16h10"/>
+  </symbol>
+
+  <!-- Workshop / Users -->
+  <symbol id="icon-workshop" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+  </symbol>
+
+  <!-- Campaign / Megaphone -->
+  <symbol id="icon-campaign" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 11l19-9-9 19-2-8z"/>
+  </symbol>
+
+  <!-- Policy / Building -->
+  <symbol id="icon-policy" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3m4-3v3m4-3v3"/>
+  </symbol>
+
+  <!-- Tooth (general dental) -->
+  <symbol id="icon-tooth" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2C9.4 2 7 3.9 7 6.5c0 2 1.2 3.7 2 4.5V20a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9c.8-.8 2-2.5 2-4.5C17 3.9 14.6 2 12 2z"/>
+  </symbol>
+
+  <!-- Heart (health / systemic) -->
+  <symbol id="icon-heart" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+  </symbol>
+
+  <!-- Location pin -->
+  <symbol id="icon-location" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+    <circle cx="12" cy="10" r="3"/>
+  </symbol>
+
+  <!-- Phone -->
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </symbol>
+
+  <!-- Email -->
+  <symbol id="icon-email" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+  </symbol>
+
+  <!-- Mentorship / Star -->
+  <symbol id="icon-mentorship" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </symbol>
+</svg>

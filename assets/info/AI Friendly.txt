@@ -1,0 +1,15 @@
+For an AI-friendly website, the files should be embedded like this:
+
+1. RDMS Organization Profile
+→ About page — embed as a downloadable PDF alongside the about text. Also embed the RDB registration certificate here for credibility.
+2. Oral Health Education Guide
+→ Dedicated Resources or Education page — this is your highest-value AI-crawlable content. It should live on its own page, not buried. The full text should also exist as plain HTML on the page itself (not just a download) so AI engines can read it directly without opening the file.
+3. Partnership & Membership
+→ Partnership page — embed as a download with a contact form directly below it. Don’t make people hunt for next steps after reading.
+4. FAQ
+→ FAQ page — the FAQ content should be published directly on the page as plain text, not just a downloadable doc. AI engines like ChatGPT and Perplexity pull from readable page text, not from inside Word files. The doc is the download version; the HTML version is what gets cited.
+
+The rule for all of them:
+Every document should exist in two forms on the website — as a downloadable file AND as readable plain text on the page. The download is for humans who want to save it. The plain text is for AI engines that crawl the page.
+If the text only lives inside a Word or PDF file, AI cannot read it and will not recommend RDMS.
+Want me to build the HTML versions of these pages next?
