@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === '/';
 
   useEffect(() => {
@@ -24,6 +25,31 @@ export default function Navbar() {
   ];
 
   const handleLinkClick = () => setIsOpen(false);
+
+  const handleScrollTo = (e, target) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    // Extract the ID to scroll to (remove leading / and #)
+    const id = target.replace('/#', '').replace('#', '');
+    
+    if (isHome) {
+      // If already on the home page, just scroll
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on another page, navigate to home then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <>
@@ -46,11 +72,15 @@ export default function Navbar() {
 
           <div className="hidden lg:flex items-center gap-8">
             {links.map((link) => (
-              link.href.startsWith('#') ? (
-                <a key={link.name} href={link.href} className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group">
+              link.href.includes('#') ? (
+                <button 
+                  key={link.name} 
+                  onClick={(e) => handleScrollTo(e, link.href)} 
+                  className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group cursor-pointer bg-transparent border-none p-0"
+                >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gold-500 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                </button>
               ) : (
                 <Link key={link.name} to={link.href} className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group">
                   {link.name}
@@ -87,14 +117,14 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col gap-6 mt-12 px-4">
               {links.map((link, i) => (
-                link.href.startsWith('#') ? (
-                  <motion.a
+                link.href.includes('#') ? (
+                  <motion.button
                     initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}
-                    key={link.name} href={link.href} onClick={handleLinkClick}
-                    className="text-3xl font-display font-medium text-white/80 hover:text-white border-b border-white/10 pb-4"
+                    key={link.name} onClick={(e) => handleScrollTo(e, link.href)}
+                    className="text-3xl font-display font-medium text-white/80 hover:text-white border-b border-white/10 pb-4 text-left bg-transparent border-none w-full cursor-pointer"
                   >
                     {link.name}
-                  </motion.a>
+                  </motion.button>
                 ) : (
                   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} key={link.name}>
                     <Link to={link.href} onClick={handleLinkClick} className="text-3xl font-display font-medium text-white/80 hover:text-white border-b border-white/10 pb-4 block">
