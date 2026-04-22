@@ -22,7 +22,7 @@ export default function Partnership() {
               </h1>
               <p className="text-forest-800/70 text-lg">Detailed information on becoming an RDMS member or corporate partner.</p>
             </div>
-            <a href="/docs/RDMS_Partnership_Membership.docx" download className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-white rounded-md hover:bg-forest-800 transition-colors shadow-lg font-bold shrink-0">
+            <a href={`${import.meta.env.BASE_URL}docs/RDMS_Partnership_Membership.docx`} download className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-white rounded-md hover:bg-forest-800 transition-colors shadow-lg font-bold shrink-0">
               <Download className="w-5 h-5" /> Download Details (DOCX)
             </a>
           </div>

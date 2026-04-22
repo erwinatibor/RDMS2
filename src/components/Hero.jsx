@@ -67,7 +67,7 @@ export default function Hero() {
           <div className="absolute -inset-4 bg-gold-500/10 blur-2xl rounded-full z-0"></div>
           <div className="relative z-10 aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <video 
-              src="/assets/hero.mp4" 
+              src={`${import.meta.env.BASE_URL}assets/hero.mp4`} 
               autoPlay muted loop playsInline 
               className="w-full h-full object-cover"
             ></video>

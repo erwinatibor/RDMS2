@@ -22,7 +22,7 @@ export default function FAQPage() {
               </h1>
               <p className="text-forest-800/70 text-lg">Comprehensive answers to common questions about RDMS.</p>
             </div>
-            <a href="/docs/RDMS_FAQ.docx" download className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-white rounded-md hover:bg-forest-800 transition-colors shadow-lg font-bold shrink-0">
+            <a href={`${import.meta.env.BASE_URL}docs/RDMS_FAQ.docx`} download className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-white rounded-md hover:bg-forest-800 transition-colors shadow-lg font-bold shrink-0">
               <Download className="w-5 h-5" /> Download FAQ (DOCX)
             </a>
           </div>

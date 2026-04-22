@@ -37,7 +37,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="RDMS Logo" className="h-10 w-auto object-contain" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="RDMS Logo" className="h-10 w-auto object-contain" />
             <div className="leading-tight">
               <span className="text-white font-display font-bold text-xl block">RDMS</span>
               <span className="text-white/50 text-[0.65rem] uppercase tracking-widest hidden md:block">Dento-Medical Society</span>

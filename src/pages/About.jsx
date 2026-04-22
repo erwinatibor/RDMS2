@@ -19,7 +19,7 @@ export default function About() {
             <h1 className="font-display text-4xl md:text-5xl font-bold text-forest-900 leading-tight">
               About Us
             </h1>
-            <a href="/docs/RDMS_Organization_Profile.docx" download className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-white rounded-md hover:bg-forest-800 transition-colors shadow-lg font-bold">
+            <a href={`${import.meta.env.BASE_URL}docs/RDMS_Organization_Profile.docx`} download className="inline-flex items-center gap-2 px-6 py-3 bg-forest-900 text-white rounded-md hover:bg-forest-800 transition-colors shadow-lg font-bold">
               <Download className="w-5 h-5" /> Download Full Profile (DOCX)
             </a>
           </div>
